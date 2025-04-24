@@ -1,166 +1,234 @@
-<!DOCTYPE html><html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beast Mode Tracker</title>
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BEAST MODE: 20-Day Tracker</title>
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
     }
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #111;
+      background: #0f0f0f;
       color: #fff;
       padding: 20px;
     }
-    h1 {
+    h1, h2, h3 {
       text-align: center;
-      color: #ff5252;
+      margin-bottom: 20px;
     }
-    h2 {
-      color: #ffaa00;
-      margin-top: 40px;
-    }
-    details {
-      background: #222;
-      margin: 10px 0;
-      padding: 15px;
-      border-left: 4px solid #ffaa00;
+    .phase {
+      background: #1f1f1f;
       border-radius: 10px;
-      box-shadow: 0 0 10px #ffaa00aa;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
     }
-    summary {
-      cursor: pointer;
-      font-size: 18px;
-      font-weight: bold;
+    .date-task {
+      margin-bottom: 15px;
+      padding: 10px;
+      background: #2c2c2c;
+      border-radius: 8px;
+    }
+    .date-task input {
+      margin-right: 10px;
+    }
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .progress-bar {
+      width: 100%;
+      background: #333;
+      height: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .progress-fill {
+      height: 100%;
+      background: orange;
+      width: 0%;
+      border-radius: 10px;
+    }
+    canvas {
+      max-width: 100%;
     }
     label {
       display: block;
-      margin-top: 5px;
-    }
-    .completed {
-      text-decoration: line-through;
-      color: #888;
-    }
-    .footer {
-      margin-top: 50px;
-      padding-top: 20px;
-      border-top: 2px solid #ffaa00;
-      text-align: center;
+      margin-top: 10px;
     }
     input[type="number"] {
-      width: 80px;
-      padding: 5px;
-      margin: 10px;
-    }
-    .bar-container {
-      margin-top: 10px;
       width: 100%;
-      background: #333;
-      border-radius: 10px;
-    }
-    .bar-fill {
-      height: 20px;
-      width: 0;
-      background: #00e676;
-      border-radius: 10px;
-      text-align: center;
-      line-height: 20px;
-    }
-    canvas {
-      margin-top: 20px;
-      background: #fff;
-      border-radius: 10px;
+      padding: 5px;
+      margin-top: 5px;
+      background: #222;
+      color: white;
+      border: 1px solid #555;
+      border-radius: 5px;
     }
   </style>
-</head>
-<body>
-  <h1>20-Day BEAST MODE Tracker</h1>  <div id="tracker"></div>  <div class="footer">
-    <h3>Track Your Weight</h3>
-    <label for="weightInput">Enter today's weight (kg):</label>
-    <input type="number" id="weightInput" min="20" max="150">
-    <button onclick="updateProgress()">Submit</button>
-    <div class="bar-container">
-      <div class="bar-fill" id="progressBar"></div>
-    </div>
-    <canvas id="weightChart" width="400" height="200"></canvas>
-  </div>  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  <script>
-    const tracker = document.getElementById('tracker');
-    const startDate = new Date('2024-04-24');
-    const totalDays = 20;
-    const expectedWeightStart = 86;
-    const expectedWeightLoss = 16;
-    const expectedWeights = Array.from({ length: totalDays }, (_, i) => +(expectedWeightStart - (i * expectedWeightLoss / (totalDays - 1))).toFixed(1));
+</head><body>
+  <h1>BEAST MODE: 20-Day Full Transformation Tracker</h1>  <div id="phases"></div>  <div class="footer">
+    <h2>Progress Tracker</h2>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div><h3>Daily Weight Entry</h3>
+<label for="weightInput">Enter your weight (kg):</label>
+<input type="number" id="weightInput" placeholder="e.g. 85" />
+<button onclick="logWeight()">Submit</button>
 
+<canvas id="weightChart"></canvas>
+
+  </div>  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  <script>
     const phases = [
-      { title: "Phase 1: Pre-Beast Conditioning", range: [0, 2] },
-      { title: "Phase 2: Warrior Beast Fasting", range: [3, 11] },
-      { title: "Phase 3: Controlled Rebirth", range: [12, 15] },
-      { title: "Phase 4: Beast Mode Living", range: [16, 19] }
+      {
+        title: "Phase 1: Pre-Beast Conditioning (Apr 24 - 26)",
+        days: [
+          { date: "Apr 24", tasks: [
+            "Wake up at 5:30 AM",
+            "1 glass warm water + pinch of salt",
+            "Cycle or walk for 15–30 mins",
+            "Green tea with lemon (no honey)",
+            "Eat one meal at 6 PM: 2 boiled eggs + salad + curd",
+            "Brush with baking soda + charcoal paste",
+            "Oil pull with coconut oil (10 mins)",
+            "Apply aloe vera gel"
+          ] },
+          { date: "Apr 25", tasks: [
+            "Same as Apr 24"
+          ] },
+          { date: "Apr 26", tasks: [
+            "Same as Apr 24"
+          ] }
+        ]
+      },
+      {
+        title: "Phase 2: Warrior Beast Fasting (Apr 27 - May 5)",
+        days: Array.from({ length: 9 }, (_, i) => ({
+          date: `Apr ${27 + i}`,
+          tasks: [
+            "Full-day water fast with minerals",
+            "Drink 4–5L water",
+            "2 cups green tea",
+            "1 black coffee with straw",
+            "1 glass salted water",
+            "Use straw for coffee to avoid teeth stains",
+            "Sheet mask at night",
+            "Face pack every 3rd day (Multani mitti + rose water)"
+          ]
+        }))
+      },
+      {
+        title: "Phase 3: Controlled Rebirth (May 6 - 9)",
+        days: [
+          { date: "May 6", tasks: [
+            "Meal at 4–6 PM: Coconut water + rice + curd + 1/2 banana"
+          ] },
+          { date: "May 7", tasks: [
+            "Fruit bowl + dal soup + 1 chapati + ghee"
+          ] },
+          { date: "May 8", tasks: [
+            "Add chicken stew (no masala) + 1 roti"
+          ] },
+          { date: "May 9", tasks: [
+            "Normal meal (light spice): chicken curry + roti + salad"
+          ] }
+        ]
+      },
+      {
+        title: "Phase 4: Beast Mode Living (May 10 - 13)",
+        days: [
+          { date: "May 10", tasks: ["One meal at 4–6 PM: Chicken curry + roti + cucumber salad"] },
+          { date: "May 11", tasks: ["Biryani (homemade, low oil) + curd"] },
+          { date: "May 12", tasks: ["Paneer bhurji + dal + roti"] },
+          { date: "May 13", tasks: ["Egg bhurji + roti + lemon juice"] }
+        ]
+      }
     ];
 
-    const journal = phases.map(p => {
-      let content = `<h2>${p.title}</h2>`;
-      for (let i = p.range[0]; i <= p.range[1]; i++) {
-        const date = new Date(startDate);
-        date.setDate(date.getDate() + i);
-        const dateStr = date.toISOString().split('T')[0];
-        const taskKey = `day_${i}`;
-        const taskValue = localStorage.getItem(taskKey) === 'true';
-        content += `
-          <details>
-            <summary>${dateStr}</summary>
-            <label>
-              <input type="checkbox" ${taskValue ? 'checked' : ''} onchange="toggleTask(${i}, this)"> Completed?
-            </label>
-          </details>
-        `;
-      }
-      return content;
-    }).join('');
+    const container = document.getElementById("phases");
+    let totalTasks = 0;
+    let completedTasks = 0;
 
-    tracker.innerHTML = journal;
+    phases.forEach((phase, idx) => {
+      const section = document.createElement("div");
+      section.classList.add("phase");
 
-    function toggleTask(index, el) {
-      localStorage.setItem(`day_${index}`, el.checked);
-      updateBar();
-    }
+      const header = document.createElement("h2");
+      header.innerText = phase.title;
+      section.appendChild(header);
 
-    function updateBar() {
-      const done = Array.from({ length: totalDays }, (_, i) => localStorage.getItem(`day_${i}`) === 'true').filter(Boolean).length;
-      const percent = (done / totalDays) * 100;
-      document.getElementById('progressBar').style.width = percent + '%';
-      document.getElementById('progressBar').innerText = `${Math.round(percent)}%`;
-    }
+      phase.days.forEach(day => {
+        const taskDiv = document.createElement("div");
+        taskDiv.classList.add("date-task");
 
-    // Weight Chart
-    const weights = JSON.parse(localStorage.getItem('myWeights') || '[]');
+        const dateTitle = document.createElement("h4");
+        dateTitle.innerText = day.date;
+        taskDiv.appendChild(dateTitle);
+
+        day.tasks.forEach((task, i) => {
+          totalTasks++;
+          const label = document.createElement("label");
+          const input = document.createElement("input");
+          input.type = "checkbox";
+          input.checked = JSON.parse(localStorage.getItem(`${day.date}_${i}`)) || false;
+          input.onchange = () => {
+            localStorage.setItem(`${day.date}_${i}`, input.checked);
+            updateProgress();
+          };
+          if (input.checked) completedTasks++;
+          label.appendChild(input);
+          label.appendChild(document.createTextNode(task));
+          taskDiv.appendChild(label);
+        });
+        section.appendChild(taskDiv);
+      });
+
+      container.appendChild(section);
+    });
+
     function updateProgress() {
-      const val = parseFloat(document.getElementById('weightInput').value);
-      if (!isNaN(val)) {
-        weights.push(val);
-        localStorage.setItem('myWeights', JSON.stringify(weights));
-        drawChart();
+      const checkboxes = document.querySelectorAll("input[type='checkbox']");
+      const checked = Array.from(checkboxes).filter(c => c.checked).length;
+      const percent = Math.round((checked / checkboxes.length) * 100);
+      document.getElementById("progressFill").style.width = `${percent}%`;
+    }
+
+    updateProgress();
+
+    const weightLog = JSON.parse(localStorage.getItem("weightLog") || "[]");
+
+    function logWeight() {
+      const input = document.getElementById("weightInput");
+      const value = parseFloat(input.value);
+      if (!isNaN(value)) {
+        weightLog.push(value);
+        localStorage.setItem("weightLog", JSON.stringify(weightLog));
+        updateChart();
+        input.value = "";
       }
     }
 
-    function drawChart() {
-      const ctx = document.getElementById('weightChart').getContext('2d');
-      const labels = Array.from({ length: totalDays }, (_, i) => `Day ${i+1}`);
-      const chart = new Chart(ctx, {
+    function updateChart() {
+      const ctx = document.getElementById("weightChart").getContext("2d");
+      const labels = weightLog.map((_, i) => `Day ${i + 1}`);
+      const expected = Array.from({ length: weightLog.length }, (_, i) => 86 - (i * (20 / 20)));
+
+      new Chart(ctx, {
         type: 'line',
         data: {
           labels,
           datasets: [
             {
               label: 'Your Weight',
-              data: weights,
+              data: weightLog,
               borderColor: 'blue',
               fill: false
             },
             {
               label: 'Expected Weight',
-              data: expectedWeights,
+              data: expected,
               borderColor: 'red',
               borderDash: [5, 5],
               fill: false
@@ -170,25 +238,11 @@
         options: {
           responsive: true,
           plugins: {
-            legend: {
-              labels: {
-                color: '#000'
-              }
-            }
-          },
-          scales: {
-            x: {
-              ticks: { color: '#000' }
-            },
-            y: {
-              ticks: { color: '#000' }
-            }
+            legend: { position: 'bottom' }
           }
         }
       });
     }
 
-    updateBar();
-    drawChart();
-  </script></body>
-</html>
+    updateChart();
+  </script></body></html>
