@@ -1,114 +1,194 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BEAST MODE TRACKER</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beast Mode Tracker</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0e0e0e;
+      font-family: 'Segoe UI', sans-serif;
+      background: #111;
       color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem;
+      padding: 20px;
     }
     h1 {
-      font-size: 2rem;
-      color: #ff7b00;
-      margin-bottom: 1rem;
+      text-align: center;
+      color: #ff5252;
     }
-    .phase {
-      background: #1e1e1e;
-      border: 2px solid #ff7b00;
-      border-radius: 1rem;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      width: 90%;
-      max-width: 600px;
-      box-shadow: 0 0 15px #ff7b00cc;
-      transition: 0.3s ease;
+    h2 {
+      color: #ffaa00;
+      margin-top: 40px;
     }
-    .phase:hover {
-      transform: scale(1.01);
-      box-shadow: 0 0 20px #ff7b00ee;
+    details {
+      background: #222;
+      margin: 10px 0;
+      padding: 15px;
+      border-left: 4px solid #ffaa00;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ffaa00aa;
     }
-    .date {
-      font-weight: bold;
-      color: #ffcc00;
-      margin-top: 1rem;
-    }
-    .task {
-      margin: 0.5rem 0;
-    }
-    .task input[type="checkbox"] {
-      margin-right: 0.5rem;
-    }
-    .hidden {
-      display: none;
-    }
-    button {
-      background-color: #ff7b00;
-      color: white;
-      padding: 0.3rem 0.8rem;
-      border: none;
-      border-radius: 0.5rem;
-      margin-top: 0.5rem;
+    summary {
       cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    label {
+      display: block;
+      margin-top: 5px;
+    }
+    .completed {
+      text-decoration: line-through;
+      color: #888;
+    }
+    .footer {
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 2px solid #ffaa00;
+      text-align: center;
+    }
+    input[type="number"] {
+      width: 80px;
+      padding: 5px;
+      margin: 10px;
+    }
+    .bar-container {
+      margin-top: 10px;
+      width: 100%;
+      background: #333;
+      border-radius: 10px;
+    }
+    .bar-fill {
+      height: 20px;
+      width: 0;
+      background: #00e676;
+      border-radius: 10px;
+      text-align: center;
+      line-height: 20px;
+    }
+    canvas {
+      margin-top: 20px;
+      background: #fff;
+      border-radius: 10px;
     }
   </style>
 </head>
 <body>
-  <h1>BEAST MODE TRACKER</h1>  <div id="plan"></div>  <script>
-    const beastPlan = {
-      '2025-04-24': ["Wake up at 5:30 AM", "Drink warm water + salt", "Cycle or walk 15–30 mins", "Green tea (no honey)", "One meal at 6 PM (2 boiled eggs, salad, curd)", "Brush with charcoal paste", "Oil pulling"],
-      '2025-04-25': ["Repeat yesterday’s tasks with baking soda instead of charcoal", "Face wash 3x", "Lip balm"],
-      '2025-04-26': ["Final prep day before full fast", "Same one-meal plan", "Optional black coffee at 3 PM"],
-      '2025-04-27': ["Start water fast", "4L water", "Green tea x2", "Black coffee with straw", "Salt water + mint"]
-      // Add more dates here with tasks
-    };
+  <h1>20-Day BEAST MODE Tracker</h1>  <div id="tracker"></div>  <div class="footer">
+    <h3>Track Your Weight</h3>
+    <label for="weightInput">Enter today's weight (kg):</label>
+    <input type="number" id="weightInput" min="20" max="150">
+    <button onclick="updateProgress()">Submit</button>
+    <div class="bar-container">
+      <div class="bar-fill" id="progressBar"></div>
+    </div>
+    <canvas id="weightChart" width="400" height="200"></canvas>
+  </div>  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  <script>
+    const tracker = document.getElementById('tracker');
+    const startDate = new Date('2024-04-24');
+    const totalDays = 20;
+    const expectedWeightStart = 86;
+    const expectedWeightLoss = 16;
+    const expectedWeights = Array.from({ length: totalDays }, (_, i) => +(expectedWeightStart - (i * expectedWeightLoss / (totalDays - 1))).toFixed(1));
 
-    const saved = JSON.parse(localStorage.getItem("beastModeTasks") || '{}');
+    const phases = [
+      { title: "Phase 1: Pre-Beast Conditioning", range: [0, 2] },
+      { title: "Phase 2: Warrior Beast Fasting", range: [3, 11] },
+      { title: "Phase 3: Controlled Rebirth", range: [12, 15] },
+      { title: "Phase 4: Beast Mode Living", range: [16, 19] }
+    ];
 
-    const planEl = document.getElementById("plan");
+    const journal = phases.map(p => {
+      let content = `<h2>${p.title}</h2>`;
+      for (let i = p.range[0]; i <= p.range[1]; i++) {
+        const date = new Date(startDate);
+        date.setDate(date.getDate() + i);
+        const dateStr = date.toISOString().split('T')[0];
+        const taskKey = `day_${i}`;
+        const taskValue = localStorage.getItem(taskKey) === 'true';
+        content += `
+          <details>
+            <summary>${dateStr}</summary>
+            <label>
+              <input type="checkbox" ${taskValue ? 'checked' : ''} onchange="toggleTask(${i}, this)"> Completed?
+            </label>
+          </details>
+        `;
+      }
+      return content;
+    }).join('');
 
-    for (const [date, tasks] of Object.entries(beastPlan)) {
-      const phase = document.createElement("div");
-      phase.className = "phase";
+    tracker.innerHTML = journal;
 
-      const dateEl = document.createElement("div");
-      dateEl.className = "date";
-      dateEl.textContent = date;
-      phase.appendChild(dateEl);
-
-      const button = document.createElement("button");
-      button.textContent = "Show/Hide Tasks";
-      const taskList = document.createElement("div");
-      taskList.className = "task-list hidden";
-
-      tasks.forEach((task, i) => {
-        const taskEl = document.createElement("div");
-        taskEl.className = "task";
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.checked = saved[`${date}_${i}`] || false;
-        checkbox.addEventListener("change", () => {
-          saved[`${date}_${i}`] = checkbox.checked;
-          localStorage.setItem("beastModeTasks", JSON.stringify(saved));
-        });
-        taskEl.appendChild(checkbox);
-        taskEl.append(task);
-        taskList.appendChild(taskEl);
-      });
-
-      button.addEventListener("click", () => {
-        taskList.classList.toggle("hidden");
-      });
-
-      phase.appendChild(button);
-      phase.appendChild(taskList);
-      planEl.appendChild(phase);
+    function toggleTask(index, el) {
+      localStorage.setItem(`day_${index}`, el.checked);
+      updateBar();
     }
+
+    function updateBar() {
+      const done = Array.from({ length: totalDays }, (_, i) => localStorage.getItem(`day_${i}`) === 'true').filter(Boolean).length;
+      const percent = (done / totalDays) * 100;
+      document.getElementById('progressBar').style.width = percent + '%';
+      document.getElementById('progressBar').innerText = `${Math.round(percent)}%`;
+    }
+
+    // Weight Chart
+    const weights = JSON.parse(localStorage.getItem('myWeights') || '[]');
+    function updateProgress() {
+      const val = parseFloat(document.getElementById('weightInput').value);
+      if (!isNaN(val)) {
+        weights.push(val);
+        localStorage.setItem('myWeights', JSON.stringify(weights));
+        drawChart();
+      }
+    }
+
+    function drawChart() {
+      const ctx = document.getElementById('weightChart').getContext('2d');
+      const labels = Array.from({ length: totalDays }, (_, i) => `Day ${i+1}`);
+      const chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [
+            {
+              label: 'Your Weight',
+              data: weights,
+              borderColor: 'blue',
+              fill: false
+            },
+            {
+              label: 'Expected Weight',
+              data: expectedWeights,
+              borderColor: 'red',
+              borderDash: [5, 5],
+              fill: false
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              labels: {
+                color: '#000'
+              }
+            }
+          },
+          scales: {
+            x: {
+              ticks: { color: '#000' }
+            },
+            y: {
+              ticks: { color: '#000' }
+            }
+          }
+        }
+      });
+    }
+
+    updateBar();
+    drawChart();
   </script></body>
 </html>
