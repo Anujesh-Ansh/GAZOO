@@ -2,121 +2,168 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beast Mode Planner</title>
+  <title>Beast Mode Tracker</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f9f9f9;
+    * {
+      box-sizing: border-box;
       margin: 0;
-      padding: 2rem;
-      color: #222;
-    }
-    h1, h2, h3 {
-      color: #333;
-    }
-    .phase {
-      border: 2px solid #222;
-      border-radius: 1rem;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      background: white;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: all 0.3s ease-in-out;
-      cursor: pointer;
-    }
-    .phase:hover {
-      background: #f0f0ff;
-    }
-    .details {
-      display: none;
-      padding-top: 1rem;
-    }
-    .active .details {
-      display: block;
-    }
-    .header {
-      font-weight: bold;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }body {
+  background: linear-gradient(to right, #111, #1f1f1f);
+  color: #fff;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #f97316;
+  margin-bottom: 30px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  background: #222;
+  border: 2px solid #444;
+  border-radius: 15px;
+  padding: 20px;
+  width: 250px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  border-color: #f97316;
+  box-shadow: 0 0 15px #f97316aa;
+}
+
+.details {
+  display: none;
+  margin-top: 10px;
+}
+
+.completed {
+  background-color: #047857 !important;
+  text-decoration: line-through;
+}
+
+.task {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task button {
+  background: #f97316;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
   </style>
 </head>
-<body>
-  <h1>Beast Mode 20-Day Tracker</h1>
-  <p><strong>This isn’t just weight loss. This is BEAST MODE — full transformation, inside and out.</strong></p>  <div id="phases"></div>  <script>
-    const beastPhases = [
+<body>  <h1>BEAST MODE: 20-DAY TRANSFORMATION</h1>
+  <div class="card-container" id="cards"></div>  <script>
+    const plan = [
       {
-        title: "PHASE 1: Pre-Beast Conditioning (April 24 – 26)",
-        content: `
-          <ul>
-            <li>Wake up at 5:30 AM</li>
-            <li>1 glass warm water + pinch of salt</li>
-            <li>Cycle or walk 15–30 mins</li>
-            <li>Green tea (no honey)</li>
-            <li>One meal/day (6 PM): 2 eggs or paneer + salad + curd</li>
-            <li>Optional: Black coffee at 3 PM</li>
-            <li>Look Maxing: Brush (baking soda/charcoal), oil pull, face wash, aloe gel</li>
-          </ul>`
+        title: "Phase 1: Pre-Beast (Apr 24–26)",
+        tasks: [
+          "Wake up at 5:30 AM",
+          "Cycle or walk 15–30 mins",
+          "Green tea with lemon",
+          "One meal/day at 6PM",
+          "Brush with charcoal paste",
+          "Oil pull with coconut oil"
+        ]
       },
       {
-        title: "PHASE 2: Warrior Beast Fasting (April 27 – May 5)",
-        content: `
-          <ul>
-            <li>Full water fast with electrolytes (pink salt, lemon, green tea)</li>
-            <li>Max 2 coffees, use straw</li>
-            <li>Salt water for fatigue, music nap if dizzy</li>
-            <li>Mindset: \"This is my old self dying\"</li>
-            <li>Look Maxing: Sheet masks, lip balm, Multani mitti every 3rd day</li>
-          </ul>`
+        title: "Phase 2: Warrior Beast (Apr 27–May 5)",
+        tasks: [
+          "Water fast - 4–5L/day",
+          "2 cups green tea",
+          "1 cup black coffee",
+          "Electrolyte water",
+          "Sheet mask at night",
+          "Face pack every 3rd day"
+        ]
       },
       {
-        title: "PHASE 3: Controlled Rebirth (May 6 – May 9)",
-        content: `
-          <ul>
-            <li>Refeed slowly (20:4 fasting)</li>
-            <li>Day 1: Coconut water + curd rice</li>
-            <li>Day 2: Fruit bowl, dal soup, 1 chapati</li>
-            <li>Day 3: Add chicken stew + 1 roti</li>
-            <li>Day 4: Full normal light-spice meal</li>
-          </ul>`
+        title: "Phase 3: Controlled Rebirth (May 6–9)",
+        tasks: [
+          "Eat window 4–6PM",
+          "Day 1 - Coconut water + rice",
+          "Day 2 - Fruit + dal soup",
+          "Day 3 - Add chicken stew",
+          "Day 4 - Light spice curry"
+        ]
       },
       {
-        title: "PHASE 4: Beast Mode Living (May 10 – May 13)",
-        content: `
-          <ul>
-            <li>One meal/day (4–6 PM)</li>
-            <li>Food Rotation: Chicken curry, biryani, egg/Paneer bhurji</li>
-            <li>Look Maxing: Face mask, coconut oil massage</li>
-          </ul>`
-      },
-      {
-        title: "AFTER 20 DAYS (May 14 Onwards) — CHAD MODE",
-        content: `
-          <ul>
-            <li>Intermittent eating window: 2–3 PM & 8–9 PM</li>
-            <li>Spicy food allowed (homemade preferred)</li>
-            <li>Skip sugar, refined oil, packaged snacks</li>
-          </ul>`
+        title: "Phase 4: Beast Mode Living (May 10–13)",
+        tasks: [
+          "One flavorful meal/day",
+          "Rotate meals: curry, biryani, eggs",
+          "Hair massage once/week",
+          "Green tea for glow",
+          "Cold face wash + aloe gel"
+        ]
       }
     ];
 
-    const container = document.getElementById('phases');
+    const cardsContainer = document.getElementById("cards");
 
-    beastPhases.forEach((phase, index) => {
-      const card = document.createElement('div');
-      card.className = 'phase';
-      card.innerHTML = `<div class='header'>${phase.title}</div><div class='details'>${phase.content}</div>`;
+    plan.forEach((phase, index) => {
+      const card = document.createElement("div");
+      card.className = "card";
 
-      card.addEventListener('click', () => {
-        card.classList.toggle('active');
-        localStorage.setItem(`phase-${index}`, card.classList.contains('active'));
+      const title = document.createElement("h3");
+      title.textContent = phase.title;
+      card.appendChild(title);
+
+      const details = document.createElement("div");
+      details.className = "details";
+
+      phase.tasks.forEach((task, taskIndex) => {
+        const taskDiv = document.createElement("div");
+        taskDiv.className = "task";
+
+        const taskText = document.createElement("span");
+        taskText.textContent = task;
+
+        const btn = document.createElement("button");
+        btn.textContent = "Done";
+
+        const key = `task-${index}-${taskIndex}`;
+        if (localStorage.getItem(key) === "true") {
+          taskDiv.classList.add("completed");
+        }
+
+        btn.onclick = () => {
+          taskDiv.classList.toggle("completed");
+          localStorage.setItem(key, taskDiv.classList.contains("completed"));
+        };
+
+        taskDiv.append(taskText, btn);
+        details.appendChild(taskDiv);
       });
 
-      if (localStorage.getItem(`phase-${index}`) === 'true') {
-        card.classList.add('active');
-      }
+      card.appendChild(details);
+      card.onclick = () => {
+        details.style.display =
+          details.style.display === "block" ? "none" : "block";
+      };
 
-      container.appendChild(card);
+      cardsContainer.appendChild(card);
     });
   </script></body>
 </html>
