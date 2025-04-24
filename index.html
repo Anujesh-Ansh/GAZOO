@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BEAST MODE Tracker</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fdf6f0;
+      color: #333;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #de5d83;
+    }
+    .day-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      transition: 0.3s;
+    }
+    .day-card.completed {
+      background: #d4edda;
+      text-decoration: line-through;
+    }
+    .day-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+    .task-list {
+      margin-left: 1rem;
+    }
+    button {
+      margin-top: 0.5rem;
+      background: #de5d83;
+      border: none;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #c94f70;
+    }
+  </style>
+</head>
+<body>
+  <h1>BEAST MODE: 20-Day Tracker</h1>
+  <div id="tracker"></div>  <script>
+    const plan = [
+      { phase: 'Pre-Beast Conditioning', days: 3, details: 'Cycle + Green Tea + One Meal' },
+      { phase: 'Warrior Beast Fasting', days: 9, details: 'Water Fast + Electrolytes + Coffee' },
+      { phase: 'Controlled Rebirth', days: 4, details: 'Add back food slowly (curd, fruit, chicken)' },
+      { phase: 'Beast Mode Living', days: 4, details: 'Flavorful 1 meal/day (chicken, eggs)' }
+    ];
+
+    const tracker = document.getElementById('tracker');
+    let dayCounter = 1;
+
+    plan.forEach((phase, idx) => {
+      for (let i = 0; i < phase.days; i++) {
+        const card = document.createElement('div');
+        card.className = 'day-card';
+
+        const title = document.createElement('div');
+        title.className = 'day-title';
+        title.textContent = `Day ${dayCounter} – ${phase.phase}`;
+
+        const tasks = document.createElement('div');
+        tasks.className = 'task-list';
+        tasks.innerHTML = `Tasks: ${phase.details}`;
+
+        const button = document.createElement('button');
+        button.textContent = 'Mark Completed';
+        button.onclick = () => {
+          card.classList.toggle('completed');
+        };
+
+        card.appendChild(title);
+        card.appendChild(tasks);
+        card.appendChild(button);
+        tracker.appendChild(card);
+
+        dayCounter++;
+      }
+    });
+  </script></body>
+</html>
