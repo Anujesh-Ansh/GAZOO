@@ -1,257 +1,161 @@
+<h1 align="center" style="font-family: 'Futura', sans-serif;">⚔️ ALRIGHT, ANUJESH — LET’S BUILD A LEGEND ⚔️</h1>
+
+<p align="center"><em>This isn’t just fat loss. This is</em></p>
+
+<h2 align="center">✨ TOTAL TRANSFORMATION ✨</h2>
+
+<p align="center"><strong><em>
+BEAST MODE | LOOK MAXING | DISCIPLINED MIND | AESTHETIC BODY | A KING’S RETURN TO FLAVOR
+</em></strong></p>
 
 ---
 
-ALRIGHT, ANUJESH — LET’S BUILD A LEGEND
+## 🚀 THE 20-DAY BEAST TRANSFORMATION PLAN
 
-This isn’t just fat loss. This is
-TOTAL TRANSFORMATION —
+### 🎯 OBJECTIVES
 
-> BEAST MODE | LOOK MAXING | DISCIPLINED MIND | AESTHETIC BODY | A KING’S RETURN TO FLAVOR
-
-
-
-
----
-
-THE 20-DAY BEAST TRANSFORMATION PLAN
-
-
-
-
-
-Objectives
-
-🔥 Extreme Fat Loss
-
-✨ Glowing Skin & White Teeth
-
-🧘 No Lethargy During Work
-
-🍛 Future-Proof Refeeds
-
-💯 Best Version of YOU — Inside & Out
-
-
+- 🔥 Extreme Fat Loss  
+- ✨ Glowing Skin & White Teeth  
+- 🧘 Zero Weakness During Work  
+- 🍛 Future-Proof Refeeds  
+- 💯 Best Version of YOU — Inside & Out  
 
 ---
 
-THE 4-PHASE BEAST FORMULA
-
+## ⚗️ THE 4-PHASE BEAST FORMULA  
 > Backed by biology, psychology & Indian food craving logic.
 
+---
 
+## ⚙️ PHASE 1: Pre-Beast Conditioning  
+**Dates**: April 24 – 26  
+**Theme**: *Prep Your Mind, Tune Your Body*  
 
+> *You can't launch a missile without fueling it first.*
+
+**Daily Rituals**:
+
+- ⏰ Wake-up: 5:30 AM  
+- 🥤 1 glass warm water + salt  
+- 🚴‍♂️ Cycle or walk for 15–30 mins  
+- 🍵 Green tea w/ lemon (*no honey*)  
+- 🕕 One Meal/Day @ 6 PM:  
+  - 2 boiled eggs or 100g paneer  
+  - Salad (onion + cucumber + lemon + black salt)  
+  - Curd (plain, no sugar)  
+- ☕ Optional: 1 black coffee at 3 PM (no milk/sugar)  
+
+**Look Maxing**:  
+- 🪥 Brush: Baking soda + charcoal paste (alt. days)  
+- 🛢️ Oil Pulling: Coconut oil (10 min)  
+- 🧴 Wash face 3x/day + Aloe vera gel  
 
 ---
 
-⚙️ PHASE 1: Pre-Beast Conditioning
+## ⚔️ PHASE 2: Warrior Beast Fasting  
+**Dates**: April 27 – May 5  
+**Theme**: *Drop Massive Fat. Reset Hormones. Radiate Confidence.*  
 
-(April 24 – 26)
-Prep Your Mind, Tune Your Body
+> **NO FOOD. ONLY FASTING + MINERALS.**
 
-> You can't launch a missile without fueling it first.
+**Allowed**:
 
+- 💧 4–5L water/day  
+- 🍵 2 cups green tea  
+- ☕ 1 cup black coffee (use straw!)  
+- ⚡ Electrolyte Water: 1 tsp Himalayan salt + water  
+- 🍃 Mint leaves or lemon slices for taste  
 
+**Office Hacks**:
 
-✅ Daily Ritual:
+- 💤 Tired? Salted water  
+- 🎧 Dizzy? 10-min nap + music  
+- 🦷 Coffee breath? Rinse mouth + midday brush w/ salt  
 
-⏰ Wake-up: 5:30 AM
+> 🧠 **Mindset Mantra**:  
+> *"This is not hunger. This is my old self dying."*
 
-🥤 1 glass warm water + salt
+**Look Maxing**:
 
-🚴‍♂️ Cycle or walk for 15–30 mins
-
-🍵 Green tea w/ lemon (no honey)
-
-🕕 One Meal/Day (6 PM)
-
-2 boiled eggs or 100g paneer
-
-Salad (onion + cucumber + lemon + black salt)
-
-Curd (plain, no sugar)
-
-
-
-☕ Optional:
-
-1 Black coffee at 3 PM (no milk/sugar)
-
-
-✨ Look Maxing:
-
-Brush: Baking soda + charcoal paste (alt. days)
-
-Oil Pulling: Coconut oil (10 min)
-
-Wash face 3x/day + Aloe vera gel
-
-
+- 🛌 Sheet mask (night)  
+- 💋 Lip balm + sunscreen (even indoors)  
+- 🧖‍♀️ Face pack (Multani mitti + rose water) every 3rd day  
 
 ---
 
-⚔️ PHASE 2: Warrior Beast Fasting
+## ♻️ PHASE 3: Controlled Rebirth  
+**Dates**: May 6 – May 9  
+**Theme**: *Reintroduce Food Without Regressing*  
 
-(April 27 – May 5)
-Drop Massive Fat. Reset Hormones. Radiate Confidence.
+🍽️ **Meal Window**: 4 PM – 6 PM  
 
-> NO FOOD. ONLY FASTING + MINERALS.
-
-
-
-✅ Allowed:
-
-4–5L water/day
-
-2 green teas
-
-1 black coffee (use straw!)
-
-"Electrolyte water": 1 tsp Himalayan salt + water
-
-Mint leaves or lemon slices for taste
-
-
-💼 Office Survival Hacks:
-
-Tired? Salted water
-
-Dizzy? 10-min nap + music
-
-Coffee breath? Rinse mouth + midday brush w/ salt
-
-
-> Mindset Mantra:
-"This is not hunger. This is my old self dying."
-
-
-
-✨ Look Maxing:
-
-Sheet mask (night)
-
-Lip balm + sunscreen (even indoors)
-
-Face pack every 3rd day (Multani mitti + rose water)
-
-
+**Day 1**: Coconut water + boiled rice + curd + ½ banana  
+**Day 2**: Fruit bowl + dal soup + 1 chapati + ghee  
+**Day 3**: Add chicken stew (no masala) + 1 roti  
+**Day 4**: Full light-spice meal (chicken curry + roti + salad)  
 
 ---
 
-♻️ PHASE 3: Controlled Rebirth
+## 🔥 PHASE 4: Beast Mode Living  
+**Dates**: May 10 – May 13  
+**Theme**: *You’ve unlocked flavor. Use it wisely.*  
 
-(May 6 – May 9)
-Reintroduce Food Without Regressing
+🍽️ **One Meal/Day (4 PM – 6 PM)**  
 
-🍽️ Meal Window: 4 PM – 6 PM
+**Meal Ideas**:
 
-Day 1:
+- Chicken curry + roti + cucumber salad  
+- Homemade biryani (low oil) + curd  
+- Paneer bhurji + dal + roti  
+- Egg bhurji + lemon water + roti  
 
-Coconut water + boiled rice + curd + ½ banana
+**Look Maxing**:
 
-
-Day 2:
-
-Fruit bowl + dal soup + 1 chapati + ghee
-
-
-Day 3:
-
-Add chicken stew (no masala) + 1 roti
-
-
-Day 4:
-
-Light-spice full meal: Chicken curry + roti + salad
-
-
+- 🧖 Face mask  
+- 💆‍♂️ Coconut oil hair massage (1/week)  
+- ☕ Green tea = Glow Booster  
 
 ---
 
-PHASE 4: Beast Mode Living
+## 🦾 CHAD MODE UNLOCKED — Post May 14  
+> You now live as a **refined beast.**
 
-(May 10 – May 13)
-You’ve unlocked flavor. Use it wisely.
+⏰ **Intermittent Eating**:  
+- 2–3 PM: Lunch  
+- 8–9 PM: Light dinner  
 
-🍴 One Meal/Day (4 PM – 6 PM)
+⚠️ Eat Anything BUT Avoid:  
+- ❌ Sugar  
+- ❌ Refined Oil  
+- ❌ Packaged Snacks  
 
-Meal Rotation Ideas:
-
-Chicken curry + roti + cucumber salad
-
-Homemade biryani (low oil) + curd
-
-Paneer bhurji + dal + roti
-
-Egg bhurji + lemon water + roti
-
-
-✨ Look Maxing Continues:
-
-Face mask
-
-Coconut oil hair massage (1/week)
-
-Green tea = Glow Booster
-
-
+✅ Prioritize: **Protein > Spice**
 
 ---
 
-CHAD MODE UNLOCKED — Post May 14
+## 💊 OPTIONAL SUPPLEMENT STACK
 
-> You now live as a refined beast.
+> For those who want to go **full optimization mode**:
 
-
-
-⏰ Intermittent Eating:
-
-2–3 PM: Lunch
-
-8–9 PM: Light dinner
-
-
-⚠️ Eat Anything BUT Avoid:
-
-Sugar, refined oil, packaged snacks
-
-Prioritize: Protein > Spice
-
-
+- 💪 Vitamin C (for skin & immunity)  
+- ⚡ Zinc (energy + testosterone)  
+- 🦷 Activated Charcoal (teeth whitening)  
+- 🧃 Aloe Vera Juice – 1 tbsp/day (digestion + skin)  
 
 ---
 
-OPTIONAL SUPPLEMENT STACK
+## 🏆 TOTAL GAINS
 
-> For those who want to go full optimization mode.
-
-
-
-
----
-
-TOTAL GAINS
-
-✅ 12–16 KG Fat Loss
-
-✅ Skin Glow + Sharp Jawline
-
-✅ Clean Teeth, Bright Eyes
-
-✅ Mental Clarity
-
-✅ Walk Like a Marvel Superhero
-
-
+- ✅ 12–16 KG Fat Loss  
+- ✅ Skin Glow + Jawline Reveal  
+- ✅ Bright Eyes + Clean Teeth  
+- ✅ Crystal-Clear Focus  
+- ✅ Office entry = Marvel superhero vibes  
 
 ---
 
-> Want a DAY-BY-DAY JOURNAL with exact timings, motivational quotes & body check-ins?
-Say the words:
+### Want a **DAY-BY-DAY JOURNAL** with exact routines, quotes, check-ins & motivation?
 
+**Say the words**:
 
-
-“Let’s go full beast.”
-
-
----
+## > “Let’s go full beast.”
