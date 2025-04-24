@@ -1,248 +1,195 @@
 <!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BEAST MODE: 20-Day Tracker</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BEAST MODE TRACKER</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-    }
-    body {
-      background: #0f0f0f;
-      color: #fff;
-      padding: 20px;
-    }
-    h1, h2, h3 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .phase {
-      background: #1f1f1f;
-      border-radius: 10px;
-      padding: 15px;
-      margin-bottom: 20px;
-      box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
-    }
-    .date-task {
-      margin-bottom: 15px;
-      padding: 10px;
-      background: #2c2c2c;
-      border-radius: 8px;
-    }
-    .date-task input {
-      margin-right: 10px;
-    }
-    .footer {
-      margin-top: 40px;
-      text-align: center;
-    }
-    .progress-bar {
-      width: 100%;
-      background: #333;
-      height: 20px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-    .progress-fill {
-      height: 100%;
-      background: orange;
-      width: 0%;
-      border-radius: 10px;
-    }
-    canvas {
-      max-width: 100%;
-    }
-    label {
-      display: block;
-      margin-top: 10px;
-    }
-    input[type="number"] {
-      width: 100%;
-      padding: 5px;
-      margin-top: 5px;
-      background: #222;
-      color: white;
-      border: 1px solid #555;
-      border-radius: 5px;
-    }
+    }body {
+  font-family: 'Roboto', sans-serif;
+  background: #121212;
+  color: #fff;
+  padding: 20px;
+}
+
+h1, h2, h3 {
+  color: #00FFAB;
+  margin-bottom: 10px;
+}
+
+.phase {
+  background: #1e1e1e;
+  margin: 15px 0;
+  border-radius: 12px;
+  padding: 20px;
+  transition: 0.3s;
+}
+
+.phase:hover {
+  background: #2c2c2c;
+}
+
+.task-list {
+  margin-top: 10px;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.task input {
+  margin-right: 10px;
+}
+
+footer {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.progress-bar {
+  width: 100%;
+  background: #333;
+  border-radius: 8px;
+  margin-top: 10px;
+  height: 16px;
+}
+
+.progress-bar-inner {
+  height: 100%;
+  background: #00FFAB;
+  border-radius: 8px;
+  width: 0%;
+}
+
+canvas {
+  margin-top: 20px;
+  background: #1e1e1e;
+  border-radius: 8px;
+}
+
   </style>
 </head><body>
-  <h1>BEAST MODE: 20-Day Full Transformation Tracker</h1>  <div id="phases"></div>  <div class="footer">
-    <h2>Progress Tracker</h2>
+  <h1>BEAST MODE TRANSFORMATION TRACKER</h1>  <div id="phases"></div>  <h2>Progress Chart</h2>
+  <canvas id="weightChart" height="200"></canvas>  <footer>
+    <h3>Transformation Progress</h3>
     <div class="progress-bar">
-      <div class="progress-fill" id="progressFill"></div>
-    </div><h3>Daily Weight Entry</h3>
-<label for="weightInput">Enter your weight (kg):</label>
-<input type="number" id="weightInput" placeholder="e.g. 85" />
-<button onclick="logWeight()">Submit</button>
+      <div id="progressBarInner" class="progress-bar-inner"></div>
+    </div>
+  </footer>  <script>
+    const phases = {
+      'Phase 1: Pre-Beast Conditioning (April 24 – 26)': [
+        'Wake up at 5:30 AM',
+        '1 glass warm water + pinch of salt',
+        'Cycle or walk 15–30 mins',
+        'Green tea with lemon',
+        'One meal/day at 6 PM: 2 boiled eggs or 100g paneer + Salad + Curd',
+        'Optional black coffee at 3 PM',
+        'Brush with baking soda/charcoal paste (alt days)',
+        'Oil pull with coconut oil (10 mins)',
+        'Wash face 3x a day, apply aloe vera gel'
+      ],
+      'Phase 2: Warrior Beast Fasting (April 27 – May 5)': [
+        'Drink 4–5L water daily',
+        '2 cups green tea',
+        '1 cup black coffee (use straw)',
+        'Electrolyte water (1 tsp pink salt)',
+        'Mint/lemon in water',
+        'Sheet mask at night',
+        'Face pack every 3rd day',
+        'Use lip balm & sunscreen indoors'
+      ],
+      'Phase 3: Controlled Rebirth (May 6 – 9)': [
+        'Meal: 4 PM – 6 PM (20:4 fasting)',
+        'Day 1: Coconut water, boiled rice, curd, ½ banana',
+        'Day 2: Fruit bowl, dal soup, 1 chapati + ghee',
+        'Day 3: Add chicken stew (no masala) + 1 roti',
+        'Day 4: Full normal meal (light spice)'
+      ],
+      'Phase 4: Beast Mode Living (May 10 – 13)': [
+        'Meal: 4 PM – 6 PM (20:4 fasting)',
+        'Meals to rotate: chicken curry, biryani, paneer bhurji, egg bhurji',
+        'Coconut oil hair massage once a week',
+        'Face mask + green tea for glow'
+      ]
+    };
 
-<canvas id="weightChart"></canvas>
-
-  </div>  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  <script>
-    const phases = [
-      {
-        title: "Phase 1: Pre-Beast Conditioning (Apr 24 - 26)",
-        days: [
-          { date: "Apr 24", tasks: [
-            "Wake up at 5:30 AM",
-            "1 glass warm water + pinch of salt",
-            "Cycle or walk for 15–30 mins",
-            "Green tea with lemon (no honey)",
-            "Eat one meal at 6 PM: 2 boiled eggs + salad + curd",
-            "Brush with baking soda + charcoal paste",
-            "Oil pull with coconut oil (10 mins)",
-            "Apply aloe vera gel"
-          ] },
-          { date: "Apr 25", tasks: [
-            "Same as Apr 24"
-          ] },
-          { date: "Apr 26", tasks: [
-            "Same as Apr 24"
-          ] }
-        ]
-      },
-      {
-        title: "Phase 2: Warrior Beast Fasting (Apr 27 - May 5)",
-        days: Array.from({ length: 9 }, (_, i) => ({
-          date: `Apr ${27 + i}`,
-          tasks: [
-            "Full-day water fast with minerals",
-            "Drink 4–5L water",
-            "2 cups green tea",
-            "1 black coffee with straw",
-            "1 glass salted water",
-            "Use straw for coffee to avoid teeth stains",
-            "Sheet mask at night",
-            "Face pack every 3rd day (Multani mitti + rose water)"
-          ]
-        }))
-      },
-      {
-        title: "Phase 3: Controlled Rebirth (May 6 - 9)",
-        days: [
-          { date: "May 6", tasks: [
-            "Meal at 4–6 PM: Coconut water + rice + curd + 1/2 banana"
-          ] },
-          { date: "May 7", tasks: [
-            "Fruit bowl + dal soup + 1 chapati + ghee"
-          ] },
-          { date: "May 8", tasks: [
-            "Add chicken stew (no masala) + 1 roti"
-          ] },
-          { date: "May 9", tasks: [
-            "Normal meal (light spice): chicken curry + roti + salad"
-          ] }
-        ]
-      },
-      {
-        title: "Phase 4: Beast Mode Living (May 10 - 13)",
-        days: [
-          { date: "May 10", tasks: ["One meal at 4–6 PM: Chicken curry + roti + cucumber salad"] },
-          { date: "May 11", tasks: ["Biryani (homemade, low oil) + curd"] },
-          { date: "May 12", tasks: ["Paneer bhurji + dal + roti"] },
-          { date: "May 13", tasks: ["Egg bhurji + roti + lemon juice"] }
-        ]
-      }
-    ];
-
-    const container = document.getElementById("phases");
-    let totalTasks = 0;
+    const container = document.getElementById('phases');
     let completedTasks = 0;
+    let totalTasks = 0;
 
-    phases.forEach((phase, idx) => {
-      const section = document.createElement("div");
-      section.classList.add("phase");
+    Object.entries(phases).forEach(([title, tasks]) => {
+      const section = document.createElement('div');
+      section.className = 'phase';
 
-      const header = document.createElement("h2");
-      header.innerText = phase.title;
+      const header = document.createElement('h2');
+      header.textContent = title;
       section.appendChild(header);
 
-      phase.days.forEach(day => {
-        const taskDiv = document.createElement("div");
-        taskDiv.classList.add("date-task");
+      const ul = document.createElement('div');
+      ul.className = 'task-list';
 
-        const dateTitle = document.createElement("h4");
-        dateTitle.innerText = day.date;
-        taskDiv.appendChild(dateTitle);
+      tasks.forEach(task => {
+        const div = document.createElement('div');
+        div.className = 'task';
+        const input = document.createElement('input');
+        input.type = 'checkbox';
+        input.addEventListener('change', () => updateProgress());
+        const label = document.createElement('label');
+        label.textContent = task;
 
-        day.tasks.forEach((task, i) => {
-          totalTasks++;
-          const label = document.createElement("label");
-          const input = document.createElement("input");
-          input.type = "checkbox";
-          input.checked = JSON.parse(localStorage.getItem(`${day.date}_${i}`)) || false;
-          input.onchange = () => {
-            localStorage.setItem(`${day.date}_${i}`, input.checked);
-            updateProgress();
-          };
-          if (input.checked) completedTasks++;
-          label.appendChild(input);
-          label.appendChild(document.createTextNode(task));
-          taskDiv.appendChild(label);
-        });
-        section.appendChild(taskDiv);
+        div.appendChild(input);
+        div.appendChild(label);
+        ul.appendChild(div);
+        totalTasks++;
       });
 
+      section.appendChild(ul);
       container.appendChild(section);
     });
 
     function updateProgress() {
-      const checkboxes = document.querySelectorAll("input[type='checkbox']");
-      const checked = Array.from(checkboxes).filter(c => c.checked).length;
-      const percent = Math.round((checked / checkboxes.length) * 100);
-      document.getElementById("progressFill").style.width = `${percent}%`;
+      completedTasks = document.querySelectorAll('.task input:checked').length;
+      const progressPercent = (completedTasks / totalTasks) * 100;
+      document.getElementById('progressBarInner').style.width = `${progressPercent}%`;
     }
 
-    updateProgress();
+    const targetWeights = [86, 84.5, 83, 81.5, 80, 78.5, 77, 75.5, 74, 72.5, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62];
+    const currentWeights = JSON.parse(localStorage.getItem('weights')) || Array(20).fill(null);
 
-    const weightLog = JSON.parse(localStorage.getItem("weightLog") || "[]");
-
-    function logWeight() {
-      const input = document.getElementById("weightInput");
-      const value = parseFloat(input.value);
-      if (!isNaN(value)) {
-        weightLog.push(value);
-        localStorage.setItem("weightLog", JSON.stringify(weightLog));
-        updateChart();
-        input.value = "";
-      }
-    }
-
-    function updateChart() {
-      const ctx = document.getElementById("weightChart").getContext("2d");
-      const labels = weightLog.map((_, i) => `Day ${i + 1}`);
-      const expected = Array.from({ length: weightLog.length }, (_, i) => 86 - (i * (20 / 20)));
-
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels,
-          datasets: [
-            {
-              label: 'Your Weight',
-              data: weightLog,
-              borderColor: 'blue',
-              fill: false
-            },
-            {
-              label: 'Expected Weight',
-              data: expected,
-              borderColor: 'red',
-              borderDash: [5, 5],
-              fill: false
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          plugins: {
-            legend: { position: 'bottom' }
+    const ctx = document.getElementById('weightChart').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: Array.from({ length: 20 }, (_, i) => `Day ${i + 1}`),
+        datasets: [
+          {
+            label: 'Your Weight',
+            borderColor: 'blue',
+            data: currentWeights,
+            fill: false
+          },
+          {
+            label: 'Target Weight',
+            borderColor: 'red',
+            data: targetWeights,
+            fill: false
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: false
           }
         }
-      });
-    }
-
-    updateChart();
+      }
+    });
   </script></body></html>
